@@ -26,11 +26,6 @@ $(call inherit-product, vendor/xiaomi/surya/surya-vendor.mk)
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# GApps
-ifeq ($(WITH_GMS),true)
-$(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
-endif
-
 # Additional native libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
@@ -107,10 +102,6 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
     libdng_sdk.vendor
-
-PRODUCT_PACKAGES += \
-    libMegviiFacepp-0.5.2 \
-    libmegface
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
